@@ -1,0 +1,630 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Futebol em Campo — A paixão pelo jogo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        :root {
+            --color-green: #123D2A;
+            --color-lime: #C5F467;
+            --color-black: #111410;
+            --color-white: #F4F5EF;
+            --color-gray: #92978F;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-white);
+            color: var(--color-black);
+        }
+
+        h1, h2, h3, h4, .font-sport {
+            font-family: 'Barlow Condensed', sans-serif;
+        }
+
+        .hero {
+            background:
+                linear-gradient(90deg, rgba(10, 18, 12, .94) 0%,
+                rgba(10, 18, 12, .67) 50%,
+                rgba(10, 18, 12, .12) 100%),
+                url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=2000&q=85')
+                center 45% / cover;
+        }
+
+        .field-pattern {
+            background-color: var(--color-green);
+            background-image:
+                linear-gradient(90deg,
+                transparent 49.8%, rgba(255,255,255,.09) 50%,
+                transparent 50.2%),
+                repeating-linear-gradient(0deg,
+                transparent 0 75px,
+                rgba(255,255,255,.035) 75px 150px);
+        }
+
+        .sport-card {
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .sport-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 35px rgba(0, 0, 0, .12);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .lime-button {
+            background: var(--color-lime);
+            color: var(--color-black);
+            transition: background .2s ease, transform .2s ease;
+        }
+
+        .lime-button:hover {
+            background: #d7ff91;
+            transform: translateY(-2px);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .01ms !important;
+                transition-duration: .01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <nav class="sticky top-0 z-50 bg-[#111410] text-white
+                border-b border-white/10 px-6 md:px-16 py-5
+                flex items-center justify-between">
+
+        <a href="#inicio" class="flex items-center gap-3">
+            <span class="bg-[#C5F467] text-[#111410] w-10 h-10
+                         flex items-center justify-center rounded-sm">
+                <i class='bx bx-football text-2xl'></i>
+            </span>
+            <span class="font-sport text-2xl md:text-3xl font-bold uppercase">
+                Futebol<span class="text-[#C5F467]">.</span>
+            </span>
+        </a>
+
+        <ul class="hidden md:flex items-center gap-8 text-sm text-white/75">
+            <li><a href="#historia" class="hover:text-[#C5F467] transition">História</a></li>
+            <li><a href="#fundamentos" class="hover:text-[#C5F467] transition">O jogo</a></li>
+            <li><a href="#competicoes" class="hover:text-[#C5F467] transition">Competições</a></li>
+            <li><a href="#paixao" class="hover:text-[#C5F467] transition">A paixão</a></li>
+        </ul>
+
+        <a href="#competicoes"
+           class="lime-button px-5 py-3 text-xs uppercase
+                  tracking-wider font-bold rounded-sm">
+            Explorar o futebol
+        </a>
+    </nav>
+
+    <main>
+        <header id="inicio"
+                class="hero min-h-[590px] md:min-h-[690px]
+                       flex items-center text-white px-6 md:px-16 py-24">
+
+            <div class="max-w-7xl mx-auto w-full">
+                <div class="max-w-3xl">
+                    <div class="flex items-center gap-3 mb-7">
+                        <span class="w-10 h-[2px] bg-[#C5F467]"></span>
+                        <p class="text-xs md:text-sm uppercase tracking-[.25em]
+                                  text-[#C5F467] font-semibold">
+                            Muito além de 90 minutos
+                        </p>
+                    </div>
+                    <h1 class="font-sport text-6xl sm:text-7xl md:text-9xl
+                               font-bold uppercase leading-[.88] tracking-tight">
+                        O jogo<br>
+                        <span class="text-[#C5F467]">que move</span><br>
+                        o mundo.
+                    </h1>
+
+                    <p class="mt-8 text-base md:text-lg text-white/75
+                              max-w-xl leading-relaxed">
+                        Da várzea aos maiores estádios do planeta,
+                        o futebol transforma histórias, aproxima pessoas
+                        e cria emoções que ficam para sempre.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 mt-9">
+                        <a href="#historia"
+                           class="lime-button px-7 py-4 font-bold text-sm
+                                  uppercase tracking-wide rounded-sm">
+                            Conheça o esporte
+                            <i class='bx bx-right-arrow-alt text-lg align-middle ml-2'></i>
+                        </a>
+
+                        <a href="#competicoes"
+                           class="border border-white/40 hover:border-[#C5F467]
+                                  hover:text-[#C5F467] px-7 py-4 font-semibold
+                                  text-sm uppercase tracking-wide rounded-sm transition">
+                            Grandes competições
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="bg-[#C5F467] px-6 md:px-16 py-9">
+            <div class="max-w-7xl mx-auto grid grid-cols-1
+                        sm:grid-cols-3 gap-8">
+
+                <div class="flex items-center gap-4">
+                    <i class='bx bx-stopwatch text-4xl'></i>
+                    <div>
+                        <h3 class="font-sport text-3xl font-bold">90 MIN</h3>
+                        <p class="text-xs uppercase tracking-wide">
+                            De jogo regulamentar
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <i class='bx bx-group text-4xl'></i>
+                    <div>
+                        <h3 class="font-sport text-3xl font-bold">11 CONTRA 11</h3>
+                        <p class="text-xs uppercase tracking-wide">
+                            Trabalho em equipe
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <i class='bx bx-world text-4xl'></i>
+                    <div>
+                        <h3 class="font-sport text-3xl font-bold">UM SÓ JOGO</h3>
+                        <p class="text-xs uppercase tracking-wide">
+                            Uma paixão mundial
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="historia" class="py-24 px-6 md:px-16">
+            <div class="max-w-7xl mx-auto grid grid-cols-1
+                        lg:grid-cols-2 gap-14 items-center">
+
+                <div class="reveal">
+                    <p class="text-xs uppercase tracking-[.25em]
+                              text-[#477A3D] font-bold mb-4">
+                        01 / A história
+                    </p>
+
+                    <h2 class="font-sport text-5xl md:text-7xl
+                               font-bold uppercase leading-[.95]">
+                        Um esporte.<br>
+                        <span class="text-[#477A3D]">Milhões de histórias.</span>
+                    </h2>
+
+                    <p class="mt-7 text-[#111410]/70 leading-relaxed">
+                        O futebol moderno ganhou suas regras na Inglaterra
+                        do século XIX e atravessou fronteiras até se tornar
+                        um dos esportes mais populares do planeta.
+                    </p>
+
+                    <p class="mt-4 text-[#111410]/70 leading-relaxed">
+                        No Brasil, o jogo ganhou identidade própria:
+                        criatividade, dribles, rivalidades históricas e uma
+                        relação com a torcida que passa de geração em geração.
+                    </p>
+
+                    <a href="#paixao"
+                       class="inline-flex items-center gap-2 mt-8
+                              font-bold text-sm border-b-2 border-[#C5F467] pb-2">
+                        Mais do que um esporte
+                        <i class='bx bx-right-arrow-alt text-xl'></i>
+                    </a>
+                </div>
+
+                <div class="reveal relative">
+                    <img
+                        src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1200&q=85"
+                        alt="Campo de futebol preparado para uma partida"
+                        class="w-full h-[350px] md:h-[480px] object-cover rounded-sm">
+
+                    <div class="absolute -bottom-5 -left-3 md:-left-6
+                                bg-[#C5F467] p-5 md:p-7 max-w-[230px]">
+                        <i class='bx bx-football text-3xl'></i>
+                        <p class="font-sport text-2xl font-bold uppercase mt-2">
+                            A paixão nunca termina.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="fundamentos"
+                 class="bg-[#F4F5EF] py-24 px-6 md:px-16">
+
+            <div class="max-w-7xl mx-auto">
+                <div class="max-w-2xl mb-12 reveal">
+                    <p class="text-xs uppercase tracking-[.25em]
+                              text-[#477A3D] font-bold mb-4">
+                        02 / Dentro de campo
+                    </p>
+
+                    <h2 class="font-sport text-5xl md:text-7xl
+                               font-bold uppercase leading-none">
+                        Cada detalhe<br>faz o jogo.
+                    </h2>
+
+                    <p class="mt-5 text-[#111410]/65 leading-relaxed">
+                        Técnica, inteligência e estratégia se encontram
+                        em cada lance. Entenda os elementos que fazem
+                        a diferença durante uma partida.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <article class="sport-card reveal bg-white p-7 border
+                                    border-black/5 rounded-sm">
+                        <div class="w-14 h-14 bg-[#E8F2DB] flex items-center
+                                    justify-center rounded-sm mb-7">
+                            <i class='bx bx-football text-3xl text-[#245333]'></i>
+                        </div>
+
+                        <span class="text-xs text-[#477A3D] font-bold">01</span>
+
+                        <h3 class="font-sport text-3xl font-bold uppercase mt-2">
+                            Técnica
+                        </h3>
+
+                        <p class="text-sm text-black/60 leading-relaxed mt-3">
+                            Domínio, passe, finalização e drible.
+                            A qualidade individual abre caminhos
+                            dentro de campo.
+                        </p>
+                    </article>
+
+                    <article class="sport-card reveal bg-white p-7 border
+                                    border-black/5 rounded-sm">
+                        <div class="w-14 h-14 bg-[#E8F2DB] flex items-center
+                                    justify-center rounded-sm mb-7">
+                            <i class='bx bx-map-alt text-3xl text-[#245333]'></i>
+                        </div>
+
+                        <span class="text-xs text-[#477A3D] font-bold">02</span>
+
+                        <h3 class="font-sport text-3xl font-bold uppercase mt-2">
+                            Tática
+                        </h3>
+
+                        <p class="text-sm text-black/60 leading-relaxed mt-3">
+                            Posicionamento, movimentação e leitura
+                            de jogo ajudam uma equipe a encontrar
+                            espaços e se defender.
+                        </p>
+                    </article>
+
+                    <article class="sport-card reveal bg-white p-7 border
+                                    border-black/5 rounded-sm">
+                        <div class="w-14 h-14 bg-[#E8F2DB] flex items-center
+                                    justify-center rounded-sm mb-7">
+                            <i class='bx bx-group text-3xl text-[#245333]'></i>
+                        </div>
+
+                        <span class="text-xs text-[#477A3D] font-bold">03</span>
+
+                        <h3 class="font-sport text-3xl font-bold uppercase mt-2">
+                            Equipe
+                        </h3>
+
+                        <p class="text-sm text-black/60 leading-relaxed mt-3">
+                            Comunicação, cooperação e confiança
+                            transformam talentos individuais
+                            em um time competitivo.
+                        </p>
+                    </article>
+
+                    <article class="sport-card reveal bg-white p-7 border
+                                    border-black/5 rounded-sm">
+                        <div class="w-14 h-14 bg-[#E8F2DB] flex items-center
+                                    justify-center rounded-sm mb-7">
+                            <i class='bx bx-shield-quarter text-3xl text-[#245333]'></i>
+                        </div>
+
+                        <span class="text-xs text-[#477A3D] font-bold">04</span>
+
+                        <h3 class="font-sport text-3xl font-bold uppercase mt-2">
+                            Defesa
+                        </h3>
+
+                        <p class="text-sm text-black/60 leading-relaxed mt-3">
+                            Marcação, cobertura e organização
+                            coletiva são essenciais para proteger
+                            o gol e recuperar a bola.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="competicoes"
+                 class="field-pattern text-white py-24 px-6 md:px-16">
+
+            <div class="max-w-7xl mx-auto">
+
+                <div class="flex flex-col md:flex-row md:items-end
+                            justify-between gap-6 mb-12 reveal">
+                    <div>
+                        <p class="text-xs uppercase tracking-[.25em]
+                                  text-[#C5F467] font-bold mb-4">
+                            03 / Grandes palcos
+                        </p>
+
+                        <h2 class="font-sport text-5xl md:text-7xl
+                                   font-bold uppercase leading-none">
+                            Onde a história<br>acontece.
+                        </h2>
+                    </div>
+
+                    <p class="text-sm text-white/65 max-w-md leading-relaxed">
+                        Torneios que reúnem culturas, revelam talentos
+                        e transformam partidas em lembranças inesquecíveis.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                    <article class="sport-card reveal bg-[#F4F5EF]
+                                    text-[#111410] rounded-sm overflow-hidden">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=900&q=80"
+                            alt="Estádio de futebol"
+                            class="w-full h-56 object-cover">
+
+                        <div class="p-7">
+                            <span class="text-xs uppercase tracking-widest
+                                         text-[#477A3D] font-bold">
+                                Seleções
+                            </span>
+
+                            <h3 class="font-sport text-4xl font-bold
+                                       uppercase mt-2">
+                                Copa do Mundo
+                            </h3>
+
+                            <p class="text-sm text-black/60 leading-relaxed mt-3">
+                                O maior palco do futebol de seleções,
+                                reunindo países em busca do título mundial.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="sport-card reveal bg-[#F4F5EF]
+                                    text-[#111410] rounded-sm overflow-hidden">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=900&q=80"
+                            alt="Gramado e arquibancadas de estádio"
+                            class="w-full h-56 object-cover">
+
+                        <div class="p-7">
+                            <span class="text-xs uppercase tracking-widest
+                                         text-[#477A3D] font-bold">
+                                América do Sul
+                            </span>
+
+                            <h3 class="font-sport text-4xl font-bold
+                                       uppercase mt-2">
+                                Libertadores
+                            </h3>
+
+                            <p class="text-sm text-black/60 leading-relaxed mt-3">
+                                Rivalidade, pressão e noites históricas
+                                marcam a disputa entre os grandes clubes
+                                sul-americanos.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="sport-card reveal bg-[#F4F5EF]
+                                    text-[#111410] rounded-sm overflow-hidden">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1459865264687-595d652de67e?auto=format&fit=crop&w=900&q=80"
+                            alt="Arquibancadas de um estádio lotado"
+                            class="w-full h-56 object-cover">
+
+                        <div class="p-7">
+                            <span class="text-xs uppercase tracking-widest
+                                         text-[#477A3D] font-bold">
+                                Futebol nacional
+                            </span>
+
+                            <h3 class="font-sport text-4xl font-bold
+                                       uppercase mt-2">
+                                Brasileirão
+                            </h3>
+
+                            <p class="text-sm text-black/60 leading-relaxed mt-3">
+                                Uma competição marcada por equilíbrio,
+                                clássicos regionais e disputas rodada
+                                após rodada.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="paixao" class="py-24 px-6 md:px-16">
+
+            <div class="max-w-7xl mx-auto grid grid-cols-1
+                        lg:grid-cols-2 gap-12 items-center">
+
+                <div class="reveal">
+                    <p class="text-xs uppercase tracking-[.25em]
+                              text-[#477A3D] font-bold mb-4">
+                        04 / O que nos conecta
+                    </p>
+
+                    <h2 class="font-sport text-5xl md:text-7xl
+                               uppercase font-bold leading-[.92]">
+                        Não é só<br>
+                        <span class="text-[#477A3D]">sobre vencer.</span>
+                    </h2>
+
+                    <p class="mt-7 text-black/65 leading-relaxed">
+                        É sobre vestir a camisa, cantar na arquibancada,
+                        jogar na rua até anoitecer e compartilhar cada
+                        emoção com quem está ao nosso lado.
+                    </p>
+
+                    <p class="mt-4 text-black/65 leading-relaxed">
+                        O futebol também ensina respeito, disciplina,
+                        superação e a importância de trabalhar em equipe.
+                        Porque algumas das maiores vitórias vão muito
+                        além do placar.
+                    </p>
+
+                    <div class="mt-8 flex items-center gap-4">
+                        <i class='bx bx-heart text-4xl text-[#477A3D]'></i>
+                        <p class="font-sport text-2xl font-semibold uppercase">
+                            Uma paixão que passa de geração em geração.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <img
+                        src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1200&q=85"
+                        alt="Estádio de futebol e atmosfera de jogo"
+                        class="w-full h-[360px] md:h-[480px] object-cover rounded-sm">
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-[#C5F467] px-6 md:px-16 py-16">
+            <div class="max-w-7xl mx-auto flex flex-col
+                        md:flex-row items-start md:items-center
+                        justify-between gap-8">
+
+                <div>
+                    <p class="text-xs uppercase tracking-[.25em] font-bold mb-3">
+                        O próximo capítulo começa agora
+                    </p>
+
+                    <h2 class="font-sport text-5xl md:text-6xl
+                               font-bold uppercase leading-none">
+                        O futebol não para.
+                    </h2>
+                </div>
+
+                <a href="#inicio"
+                   class="inline-flex items-center gap-3 bg-[#111410]
+                          text-white px-7 py-4 rounded-sm font-bold
+                          uppercase tracking-wide text-sm hover:bg-[#245333]
+                          transition">
+                    Voltar ao início
+                    <i class='bx bx-up-arrow-alt text-xl'></i>
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#111410] text-white px-6 md:px-16 py-12">
+
+        <div class="max-w-7xl mx-auto">
+
+            <div class="flex flex-col md:flex-row justify-between
+                        gap-8 pb-9 border-b border-white/15">
+                <div>
+                    <a href="#inicio"
+                       class="font-sport text-3xl font-bold uppercase">
+                        Futebol<span class="text-[#C5F467]">.</span>
+                    </a>
+
+                    <p class="text-sm text-white/55 mt-3 max-w-sm leading-relaxed">
+                        Um espaço dedicado à história, à cultura e
+                        à paixão pelo esporte mais popular do mundo.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest
+                               text-[#C5F467] font-bold mb-4">
+                        Navegação
+                    </h4>
+
+                    <ul class="space-y-2 text-sm text-white/65">
+                        <li><a href="#historia" class="hover:text-[#C5F467]">História</a></li>
+                        <li><a href="#fundamentos" class="hover:text-[#C5F467]">Fundamentos</a></li>
+                        <li><a href="#competicoes" class="hover:text-[#C5F467]">Competições</a></li>
+                        <li><a href="#paixao" class="hover:text-[#C5F467]">A paixão</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row
+                        justify-between gap-3 text-xs text-white/40">
+                <p>© 2026 Futebol em Campo. Projeto educativo.</p>
+                <p>Feito para quem vive o jogo.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const elements = document.querySelectorAll('.reveal');
+
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.12
+            });
+
+            elements.forEach((element) => observer.observe(element));
+        } else {
+            elements.forEach((element) => element.classList.add('visible'));
+        }
+    </script>
+</body>
+</html>
